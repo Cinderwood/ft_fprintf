@@ -1,0 +1,17 @@
+SRCS =\
+ft_fprintf.c\
+buffer.c\
+parse_flags.c\
+parse_obj_wrapper.c\
+parse_precision.c\
+parse_specifier.c\
+parse_width.c\
+print_char.c\
+print_hex.c\
+print_int.c\
+print_obj.c\
+print_ptr.c\
+print_str.c\
+print_uint.c\
+ptr_to_hex.c\
+str_combine.c
