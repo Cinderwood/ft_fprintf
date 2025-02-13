@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_fprintf.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wsunwoo <wsunwoo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: wsunwoo <wsunwoo@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 16:48:23 by wsunwoo           #+#    #+#             */
-/*   Updated: 2024/12/12 19:22:31 by wsunwoo          ###   ########.fr       */
+/*   Updated: 2025/02/13 22:34:37 by wsunwoo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdlib.h>
 # include <stdint.h>
 # include <stdio.h>
-# include "../libft/libft.h"
+# include "libft.h"
 # define VAR_TYPE_LIST "cspdiuxX%"
 # define LHEX "0123456789abcdef"
 # define L_PREFIX "0x"
