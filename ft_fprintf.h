@@ -6,7 +6,7 @@
 /*   By: wsunwoo <wsunwoo@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 16:48:23 by wsunwoo           #+#    #+#             */
-/*   Updated: 2025/02/14 21:57:23 by wsunwoo          ###   ########.fr       */
+/*   Updated: 2025/02/14 22:13:21 by wsunwoo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <stdint.h>
 # include <stdio.h>
+# include <stdbool.h>
 # include "libft.h"
 # define VAR_TYPE_LIST "cspdiuxX%"
 # define LHEX "0123456789abcdef"
