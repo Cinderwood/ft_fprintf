@@ -1,3 +1,0 @@
-[submodule "ft_fprintf/libft"]
-	path = ft_fprintf/libft
-	url = git@github.com:Cinderwood/libft.git
