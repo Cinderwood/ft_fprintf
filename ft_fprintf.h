@@ -6,7 +6,7 @@
 /*   By: wsunwoo <wsunwoo@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 16:48:23 by wsunwoo           #+#    #+#             */
-/*   Updated: 2025/02/13 22:34:37 by wsunwoo          ###   ########.fr       */
+/*   Updated: 2025/02/14 21:57:23 by wsunwoo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,6 @@
 # define UHEX "0123456789ABCDEF"
 # define U_PREFIX "0X"
 # define DEC "0123456789"
-
-# ifndef T_BOOL
-#  define T_BOOL
-
-typedef enum e_bool {
-	TRUE = 1,
-	FALSE = 0,
-}	t_bool;
-# endif
 
 typedef struct s_obj
 {

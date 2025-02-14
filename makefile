@@ -1,29 +1,31 @@
 TARGET = libft_fprintf.a
 C_FLAG = -Werror -Wextra -Wall
-HEADER_PATH = -I. -Ilibft
+HEADER_PATH = -I. -I$(DIR_LIBFT)
 include source_names.mk
 OBJS = $(addprefix objs/, $(patsubst %.c,%.o,$(SRCS)))
 DEPS = $(addprefix deps/, $(patsubst %.c,%.d,$(SRCS)))
 
-all: $(OBJS)
-	git submodule update --init --recursive
-	make -C libft all -s
-	ar rcsT $(TARGET) $(OBJS) libft/libft.a
+all: lib $(OBJS)
+	ar rcs $(TARGET) $(OBJS)
 
 objs/%.o: srcs/%.c
 	mkdir -p objs deps
+	@if [ ! -f $< ]; then echo "Error: Source file $< not found!"; exit 1; fi
 	cc $(C_FLAG) $(HEADER_PATH) -c $< -o $@ -MMD -MF deps/$(*F).d
 
 -include $(DEPS)
 
 clean:
 	rm -rf objs deps
-	make -C libft clean -s
 
 fclean: clean
 	rm -rf $(TARGET)
-	make -C libft fclean -s
 
 re: fclean all
 
-.PHONY: all clean fclean re
+lib:
+ifndef DIR_LIBFT
+	$(error ft_fprintf: directory path libft not defined.)
+endif
+
+.PHONY: all clean fclean re lib
