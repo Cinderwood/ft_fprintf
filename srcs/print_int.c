@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_int.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wsunwoo <wsunwoo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: wsunwoo <wsunwoo@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 18:03:59 by wsunwoo           #+#    #+#             */
-/*   Updated: 2024/12/12 18:04:36 by wsunwoo          ###   ########.fr       */
+/*   Updated: 2025/02/14 22:21:03 by wsunwoo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ static char	*get_int_sign(t_obj *obj, char *str)
 {
 	if (str[0] == '-')
 		return (ft_strdup("-"));
-	if (obj->flag_plus == TRUE)
+	if (obj->flag_plus == true)
 		return (ft_strdup("+"));
-	if (obj->flag_space == TRUE)
+	if (obj->flag_space == true)
 		return (ft_strdup(" "));
 	return (ft_strdup(""));
 }
@@ -30,13 +30,13 @@ static void	print_int_rules(char *strs[4], t_obj *obj, char *buffer)
 	str = ft_strdup("");
 	if (str == NULL)
 		return ;
-	if (obj->flag_minus == TRUE && obj->flag_zero == TRUE)
+	if (obj->flag_minus == true && obj->flag_zero == true)
 		str_combine(&str, strs[1], strs[2], strs[0], strs[3], NULL);
-	else if (obj->flag_minus == TRUE && obj->flag_zero == FALSE)
+	else if (obj->flag_minus == true && obj->flag_zero == false)
 		str_combine(&str, strs[1], strs[2], strs[0], strs[3], NULL);
-	else if (obj->flag_minus == FALSE && obj->flag_zero == TRUE)
+	else if (obj->flag_minus == false && obj->flag_zero == true)
 		str_combine(&str, strs[1], strs[3], strs[2], strs[0], NULL);
-	else if (obj->flag_minus == FALSE && obj->flag_zero == FALSE)
+	else if (obj->flag_minus == false && obj->flag_zero == false)
 		str_combine(&str, strs[3], strs[1], strs[2], strs[0], NULL);
 	buffer_push_str(buffer, str);
 	free(str);
@@ -50,7 +50,7 @@ size_t	print_int(t_obj *obj, va_list *ap, char *buffer)
 
 	num = ft_itoa(va_arg(*ap, int));
 	strs[0] = ft_strtrim(num, "-");
-	if (!ft_strncmp(strs[0], "0", 2) && obj->precision_true == TRUE \
+	if (!ft_strncmp(strs[0], "0", 2) && obj->precision_true == true \
 	&& obj->precision_num == 0)
 	{
 		free(strs[0]);

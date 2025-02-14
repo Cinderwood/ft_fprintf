@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_uint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wsunwoo <wsunwoo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: wsunwoo <wsunwoo@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 23:15:42 by wsunwoo           #+#    #+#             */
-/*   Updated: 2024/12/12 19:14:32 by wsunwoo          ###   ########.fr       */
+/*   Updated: 2025/02/14 22:22:57 by wsunwoo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ static void	print_uint_rules(char *strs[3], t_obj *obj, char *buffer)
 	str = ft_strdup("");
 	if (str == NULL)
 		return ;
-	if (obj->flag_minus == TRUE)
+	if (obj->flag_minus == true)
 		str_combine(&str, strs[1], strs[0], strs[2], NULL);
-	else if (obj->flag_minus == FALSE)
+	else if (obj->flag_minus == false)
 		str_combine(&str, strs[2], strs[1], strs[0], NULL);
 	buffer_push_str(buffer, str);
 	free(str);
@@ -58,7 +58,7 @@ size_t	print_uint(t_obj *obj, va_list *ap, char *buffer)
 	size_t	bytes_printed;
 
 	strs[0] = uitoa(va_arg(*ap, unsigned int));
-	if (!ft_strncmp(strs[0], "0", 2) && obj->precision_true == TRUE \
+	if (!ft_strncmp(strs[0], "0", 2) && obj->precision_true == true \
 	&& obj->precision_num == 0)
 	{
 		free(strs[0]);

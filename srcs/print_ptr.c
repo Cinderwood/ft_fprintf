@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_ptr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wsunwoo <wsunwoo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: wsunwoo <wsunwoo@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 03:44:48 by wsunwoo           #+#    #+#             */
-/*   Updated: 2024/12/12 18:01:16 by wsunwoo          ###   ########.fr       */
+/*   Updated: 2025/02/14 22:22:25 by wsunwoo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 static char	*get_ptr_sign(t_obj *obj)
 {
-	if (obj->flag_plus == TRUE)
+	if (obj->flag_plus == true)
 		return (ft_strdup("+"));
-	if (obj->flag_space == TRUE)
+	if (obj->flag_space == true)
 		return (ft_strdup(" "));
 	return (ft_strdup(""));
 }
@@ -36,19 +36,19 @@ static void	print_ptr_rules(char *strs[4], int minus, int zero, char *buffer)
 	str = ft_strdup("");
 	if (str == NULL)
 		return ;
-	if (minus == TRUE)
+	if (minus == true)
 	{
-		if (zero == TRUE)
+		if (zero == true)
 			ft_memset(strs[3], ' ', ft_strlen(strs[3]));
 		str_combine(&str, strs[2], strs[1], strs[0], strs[3], NULL);
 	}
-	else if (minus == FALSE)
+	else if (minus == false)
 	{
-		if (zero == TRUE)
+		if (zero == true)
 		{
 			str_combine(&str, strs[2], strs[1], strs[3], strs[0], NULL);
 		}
-		else if (zero == FALSE)
+		else if (zero == false)
 		{
 			str_combine(&str, strs[3], strs[2], strs[1], strs[0], NULL);
 		}
@@ -72,7 +72,7 @@ size_t	print_ptr(t_obj *obj, va_list *ap, char *buffer)
 	}
 	else
 	{
-		strs[0] = ptr_to_hex((uintptr_t)ptr, FALSE);
+		strs[0] = ptr_to_hex((uintptr_t)ptr, false);
 		strs[1] = ft_strdup(L_PREFIX);
 		strs[2] = get_ptr_sign(obj);
 	}

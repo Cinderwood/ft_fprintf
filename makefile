@@ -5,7 +5,9 @@ include source_names.mk
 OBJS = $(addprefix objs/, $(patsubst %.c,%.o,$(SRCS)))
 DEPS = $(addprefix deps/, $(patsubst %.c,%.d,$(SRCS)))
 
-all: lib $(OBJS)
+all: lib $(TARGET)
+
+$(TARGET): $(OBJS)
 	ar rcs $(TARGET) $(OBJS)
 
 objs/%.o: srcs/%.c
@@ -18,7 +20,8 @@ objs/%.o: srcs/%.c
 clean:
 	rm -rf objs deps
 
-fclean: clean
+fclean:
+	rm -rf objs deps
 	rm -rf $(TARGET)
 
 re: fclean all
