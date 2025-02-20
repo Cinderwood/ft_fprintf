@@ -12,7 +12,7 @@ $(TARGET): $(OBJS)
 
 objs/%.o: srcs/%.c
 	mkdir -p objs deps
-	@if [ ! -f $< ]; then echo "Error: Source file $< not found!"; exit 1; fi
+	@if [ ! -f $< ]; then echo "ft_fprintf: Source file $< not found!"; exit 1; fi
 	cc $(C_FLAG) $(HEADER_PATH) -c $< -o $@ -MMD -MF deps/$(*F).d
 
 -include $(DEPS)
