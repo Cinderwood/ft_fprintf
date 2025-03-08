@@ -1,5 +1,7 @@
 SRCS =\
+ft_vfprintf.c\
 ft_fprintf.c\
+colored_print.c\
 buffer.c\
 parse_flags.c\
 parse_obj_wrapper.c\
