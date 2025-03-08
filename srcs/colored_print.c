@@ -6,13 +6,13 @@
 /*   By: wsunwoo <wsunwoo@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 12:04:46 by wsunwoo           #+#    #+#             */
-/*   Updated: 2025/03/08 21:04:02 by wsunwoo          ###   ########.fr       */
+/*   Updated: 2025/03/08 23:27:40 by wsunwoo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fprintf.h"
 
-static t_cp	cp_global_struct(t_cp *set_static_struct);
+static t_cp	*cp_global_struct(t_cp *set_static_struct);
 
 int	cp_perror(const char *format, ...)
 {
