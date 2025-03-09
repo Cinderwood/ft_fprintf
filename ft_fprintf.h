@@ -6,7 +6,7 @@
 /*   By: wsunwoo <wsunwoo@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 16:48:23 by wsunwoo           #+#    #+#             */
-/*   Updated: 2025/03/08 21:02:26 by wsunwoo          ###   ########.fr       */
+/*   Updated: 2025/03/10 03:03:09 by wsunwoo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,10 @@ size_t		start_parse(const char *format, va_list *ap, \
 size_t *bytes_printed, char *buffer);
 void		buffer_flush(char buffer[BUFSIZ], int stream);
 void		buffer_push_char(char buffer[BUFSIZ], char c);
-void		buffer_push_str(char buffer[BUFSIZ], char *str);
+void		buffer_push_str(char buffer[BUFSIZ], const char *str);
 void		buffer_push_int(char buffer[BUFSIZ], int nbr);
+size_t		buffer_push_va_list(char buffer[BUFSIZ], const char *format, \
+va_list ap);
 char		*ptr_to_hex(uintptr_t nbr, int letter_case);
 size_t		parse_obj_wrapper(const char *ptr, t_obj *obj);
 size_t		parse_flags(const char *ptr, t_obj *obj);

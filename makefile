@@ -1,5 +1,5 @@
 TARGET = libft_fprintf.a
-C_FLAG = -Werror -Wextra -Wall
+C_FLAG = -Werror -Wextra -Wall -g
 HEADER_PATH = -I. -I$(DIR_LIBFT)
 include source_names.mk
 OBJS = $(addprefix objs/, $(patsubst %.c,%.o,$(SRCS)))

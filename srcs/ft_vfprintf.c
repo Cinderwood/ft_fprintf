@@ -6,7 +6,7 @@
 /*   By: wsunwoo <wsunwoo@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 01:14:16 by wsunwoo           #+#    #+#             */
-/*   Updated: 2025/02/27 01:48:36 by wsunwoo          ###   ########.fr       */
+/*   Updated: 2025/03/10 03:12:18 by wsunwoo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,12 @@
 
 int	ft_vfprintf(int stream, const char *format, va_list	ap)
 {
-	size_t		bytes_read;
-	size_t		bytes_printed;
-	static char	buffer[BUFSIZ] = {0};
-	va_list		ap_copy;
+	char	buffer[BUFSIZ];
+	size_t	bytes_printed;
 
-	bytes_read = 0;
-	bytes_printed = 0;
-	va_copy(ap_copy, ap);
-	while (format[bytes_read] != '\0')
-	{
-		if (format[bytes_read] == '%')
-		{
-			bytes_read += start_parse(format + bytes_read, &ap_copy, \
-			&bytes_printed, buffer);
-			continue ;
-		}
-		buffer_push_char(buffer, format[bytes_read]);
-		bytes_read++;
-		bytes_printed++;
-	}
+	ft_bzero(buffer, BUFSIZ);
+	bytes_printed = buffer_push_va_list(buffer, format, ap);
 	buffer_flush(buffer, stream);
-	va_end(ap_copy);
 	return (bytes_printed);
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   buffer.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wsunwoo <wsunwoo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: wsunwoo <wsunwoo@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 17:56:19 by wsunwoo           #+#    #+#             */
-/*   Updated: 2024/12/12 21:53:46 by wsunwoo          ###   ########.fr       */
+/*   Updated: 2025/03/10 03:03:01 by wsunwoo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	buffer_push_char(char buffer[BUFSIZ], char c)
 	buffer[buff_len] = c;
 }
 
-void	buffer_push_str(char buffer[BUFSIZ], char *str)
+void	buffer_push_str(char buffer[BUFSIZ], const char *str)
 {
 	size_t		buff_len;
 	size_t		index;
@@ -94,4 +94,29 @@ void	buffer_push_int(char buffer[BUFSIZ], int nbr)
 		index++;
 	}
 	free(tmp);
+}
+
+size_t	buffer_push_va_list(char buffer[BUFSIZ], const char *format, va_list ap)
+{
+	size_t	bytes_read;
+	size_t	bytes_printed;
+	va_list	ap_copy;
+
+	bytes_read = 0;
+	bytes_printed = 0;
+	va_copy(ap_copy, ap);
+	while (format[bytes_read] != '\0')
+	{
+		if (format[bytes_read] == '%')
+		{
+			bytes_read += start_parse(format + bytes_read, &ap_copy, \
+			&bytes_printed, buffer);
+			continue ;
+		}
+		buffer_push_char(buffer, format[bytes_read]);
+		bytes_read++;
+		bytes_printed++;
+	}
+	va_end(ap_copy);
+	return (bytes_printed);
 }
